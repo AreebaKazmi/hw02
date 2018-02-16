@@ -16,28 +16,20 @@
 
 \boxedpoints
 \printanswers
+\usepackage{mathtools}
 \usepackage[table]{xcolor}
 \usepackage{amsfonts,graphicx,amsmath,hyperref}
 \title{Habib University\\CS-113 Discrete Mathematics\\Spring 2018\\HW 2}
-\author{$<your ID>$}  % replace with your ID, e.g. oy02945
+\author{$<sk02901>$}
 \date{Due: 19h, 16th February, 2018}
-
 
 \begin{document}
 \maketitle
-
 \begin{questions}
-
-
-
 \question
-
 %Short Questions (25)
-
 \begin{parts}
-
- 
-  \part[5] Determine the domain, codomain and set of values for the following function to be 
+  \part[5] Determine the domain, co-domain and set of values for the following function to be 
   \begin{subparts}
   \subpart Partial
   \subpart Total
@@ -48,13 +40,20 @@
   \end{center}
 
   \begin{solution}
-    % Write your solution here
+  \\
+  \textbf{i. Partial:}\\
+    A function which is not defined for some domain value, is called Partial Function. For the given question $y=\sqrt{x}$: The domain $x \in \mathbb{Z}$ and co-domain $y \in \mathbb{R^+}$, such that $f : \mathbb{Z} \rightarrow \mathbb{R^+}$.
+    Therefore, for any negative value $x$ will not be mapped to any value of co-domain.
+    \newline
+    \\
+  \textbf{ii. Total:}\\
+  A function that is defined for all domain values is called Total Function. For the given question $y=\sqrt{x}$: The domain $x \in \mathbb{N}$ and co-domain $y \in \mathbb{R^+}$, such that $f : \mathbb{N} \rightarrow \mathbb{R^+}$. Since, all natural numbers are positive, $x$ will be mapped to all the values of co-domain. 
   \end{solution}
   
   \part[5] Explain whether $f$ is a function from the set of all bit strings to the set of integers if $f(S)$ is the smallest $i \in \mathbb{Z}$� such that the $i$th bit of S is 1 and $f(S) = 0$ when S is the empty string. 
   
   \begin{solution}
-    % Write your solution here
+    From the given question and condition, for any given bit string, the smallest bit that is 1, the whole bit string is mapped to the value of integer corresponding to that bit index value. This means that multiple bit strings can be mapped to the same integer. If the bit string contains of all 0s then it wont get mapped to any value, this means that the function is undefined. Both of these conditions goes against the definition of function.
   \end{solution}
 
   \part[15] For $X,Y \in S$, explain why (or why not) the following define an equivalence relation on $S$:
@@ -65,15 +64,43 @@
   \end{subparts}
 
   \begin{solution}
-    % Write your solution here
+    \\
+    Whenever the relation is reflexive, symmetric and transitive, an equivalence relationship is established.
+    \newline
+    \\
+    \textbf{i.}This is not equivalent, because it is reflexive and symmetric but it is not transitive.\\
+    \textbf{a.Reflexive}\\
+    It is Reflexive because every person is in class with himself/herself.\\
+    \textbf{b.Symmetric}\\ It is symmetric because if X is in class with Y, then Y is definitely in class with X too.
+    \textbf{c.Transitive}\\
+    It is not transitive because if X is in class with Y and Y is in class with Z too then it is not necessary that X is in also in class with Z too and vice versa.
+    \newline
+    \\
+    \textbf{ii.}This is equivalent, because it is reflexive, symmetric and transitive.\\
+    \textbf{a.Reflexive}\\
+    It is Reflexive because every word rhymes with itself.\\
+    \textbf{b.Symmetric}\\ It is symmetric because if X rhymes with Y then Y will definitely rhyme with X too.\\
+    \textbf{c.Transitive}\\
+    It is transitive because if X rhymes with Y and Y rhymes with Z(any other word), then X will also rhyme with Z(any other word).
+    \newline
+    \\
+     \textbf{iii.}This is not equivalent, because it is reflexive and transitive but not symmetric.\\
+    \textbf{a.Reflexive}\\
+    It is Reflexive because each set is subset of itself.\\
+    \textbf{b.Symmetric}\\ It is not symmetric because if X is a subset of Y then it is not necessary that Y will also be the subset of X.  \\
+    \textbf{c.Transitive}\\
+    It is transitive because if X is a subset of Y and Y is a subset of Z then X will definitely be the subset of Z. 
   \end{solution}
-
 \end{parts}
 
 %Long questions (75)
 \question[15] Let $A = f^{-1}(B)$. Prove that $f(A) \subseteq B$.
   \begin{solution}
-    % Write your solution here
+    Considering the rule of bijection and inversibilty: if the inverse of a function exists, a function is bijective. According to the given data in the question, $A = f^{-1}(B)$, which means $f(A)=B$, i.e.the function is inversible.  \\
+    Since, the function is already inversible according to the given question, it can be said that the function  is bijective, which means that each element of $A$ maps to the unique element of $B$ and vice versa. This concludes that the cardinalities of $A$ and $B$ are same, hence both the sets are equivalent. 
+    \\
+    Therefore, $f(A) \subseteq B$
+    
   \end{solution}
 
 \question[15] Consider $[n] = \{1,2,3,...,n\}$ where $n \in \mathbb{N}$. Let $A$ be the set of subsets of $[n]$ that have even size, and let $B$ be the set of subsets of $[n]$ that have odd size. Establish a bijection from $A$ to $B$, thereby proving $|A| = |B|$. (Such a bijection is suggested below for $n = 3$) 
@@ -87,8 +114,21 @@
 \end{tabular}
 \end{center}
 
-  \begin{solution}
-    % Write your solution here
+  \begin{solution}\\
+    To prove the bijectivity, we have to prove that two sets are injective and surjective.
+    \newline
+    \\From the given table, it can be noticed that it maps the subset either to itself or to the union {n} (in this example n=3). So, we either subtract $\{n\}$ or adds $\{n\}$ (i.e. union).\\
+    To prove that $f$ is \textit{injective}, lets consider two subsets $X$ and $Y$ such that $f(X)=f(Y)$. We will get two conditions:\\
+    \begin{center}
+        $X-\{n\}=f(X)=f(Y)=Y-\{n\}$ \\
+        OR\\
+        $X\cup\{n\}=f(X)=f(Y)=Y\cup\{n\}$ 
+    \end{center}
+    Both of the conditions conclude to $X=Y$. Therefore, $f$ is \textit{injective}. \\
+    To prove the surjectivity, consider $A$ be a set of the range of  $f$. If $A$ contains $n$ then $A-\{n\}$ is a subset that maps to $A$ under $f$ and if $A$ does not contains $n$ then $A\cup\{n\}$ is a subset that maps to $A$ under $f$. In either case, every image has a pre-image that maps to it. Hence $f$ is \textit{surjective}.
+    \newline
+    \\Since, $f$ is injective and surjective as well, it can be concluded that the function $f$ is \textbf{bijective}.
+    
   \end{solution}
   
 \question Mushrooms play a vital role in the biosphere of our planet. They also have recreational uses, such as in understanding the mathematical series below. A mushroom number, $M_n$, is a figurate number that can be represented in the form of a mushroom shaped grid of points, such that the number of points is the mushroom number. A mushroom consists of a stem and cap, while its height is the combined height of the two parts. Here is $M_5=23$:
@@ -97,7 +137,7 @@
   \centering
   \includegraphics[scale=1.0]{m5_figurate.png}
   \caption{Representation of $M_5$ mushroom}
-  \label{fig:mushroom_anatomy}
+  \label{fig:mushroom_anatomy_1}
 \end{figure}
 
 We can draw the mushroom that represents $M_{n+1}$ recursively, for $n \geq 1$:
@@ -121,11 +161,92 @@ Study the first five mushrooms carefully and make sure you can draw subsequent o
   \begin{parts}
     \part[15] Derive a closed-form for $M_n$ in terms of $n$.
   \begin{solution}
-    % Write your solution here
-  \end{solution}
+   \\
+   If we observe the given Mushrooms and the formulae, we can generate the following table for the $Cap\_width, Stem\_height and Cap\_height$.
+   \newline
+   \\
+   \textbf{Cap\_width:}
+   \\
+   It can be observed that for $n=1$, the corresponding $Cap\_width = 2$ and as the $n$ increases, the corresponding $Cap\_width$ increases by 1. Looking at the base case and the following pattern it can be concluded that:
+   \begin{center}
+       $Cap\_width = n+1$ \hspace{1cm} For $n \geq 1$
+   \end{center}
+   
+    \textbf{Stem\_height:}
+    \\
+    Looking at the pattern in the table for Stem\_height, it can be observed that for $n=1$ Stem\_height = 0; for $n=2$, Stem\_height = 1; and this pattern follows for the rest of the values. Therefore, it can be concluded that:
+    \begin{center}
+        $Stem\_height = n-1$ \hspace{1cm} For $n \geq 1$
+    \end{center}
+
+    \textbf{Cap\_height:}
+    \\
+    Looking at the pattern for Cap\_height, it can be observed that the number repeats itself for two consecutive values of $n$. This gives us a hint about dividing $n$ with some integer and flooring/ceiling the answer, might give us the same answer for different values of $n$. So for any value of $n$, the corresponding 
+    \begin{center}
+    $Cap\_height = \left\lfloor(n)/2\right \rfloor+1$ \hspace{1cm} For $n \geq 1$
+    \end{center}
+    
+    \textbf{Total Dots:}
+    \\
+    If we observe the given Mushrooms we can say that, \textit{Total\_Dots= Stem\_Dots + Cap\_Dots}.
+    \newline
+    For \textit{Stem\_Dots}, notice that the total dots in the stem are twice the Stem\_height. Therefore,
+    \begin{center}
+        $Stem\_dots = 2 * Stem\_height = 2(n-1)$ \hspace{1cm} where $n \geq 1$
+    \end{center}
+    
+    For \textit{Cap\_Dots}, we can notice that if we go from bottom to top of the cap, each row has one less dot than the preceding row. From this observation we conclude the following formula.\\
+    \begin{equation}
+        Cap\_dots = (Cap\_height * Cap\_width) - \sum_{i=0}^{Cap\_height -1} i
+    \end{equation}
+    
+    \begin{center}
+        $Cap\_dots = [(\left\lfloor(n)/2\right \rfloor+1) * (n+1)] - \sum_{i=0}^{\left\lfloor(n)/2\right \rfloor} i$ \hspace{1cm} where $n \geq 1$
+    \end{center}
+    
+    \begin{equation}
+        Total Dots= 2*(n-1) + [(\left\lfloor(n)/2\right \rfloor+1) * (n+1)] - \sum_{i=0}^{\left\lfloor(n)/2\right \rfloor} i
+    \end{equation}
+    \begin{center}
+       where $n \geq 1$
+    \end{center}
+    
+   \end{solution}
+   
+   \begin{center}
+   
+   \begin{tabular}{|l|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|p{.15\textwidth}|}
+    \hline
+    $M_{n+1}$& $Cap\_width$ & $Stem\_height$ & $Cap\_height$  \\\hline\hline
+    $M_{0+1}$	&2 &0 &1 \\\hline
+    $M_{1+1}$	&3 &1 &2 \\\hline
+    $M_{2+1}$  &4 &2 &2 \\\hline
+    $M_{3+1}$	&5 &3 &3 \\\hline
+    $M_{4+1}$	&6 &4 &3 \\\hline
+    \end{tabular}
+    \end{center}
+    
+  
     \part[5] What is the total height of the $20$th mushroom in the series? 
+    
   \begin{solution}
-    % Write your solution here
+  Total height of a Mushroom is the sum of Stem\_height and the Cap\_height. For finding the total height of the 20th Mushroom, we know that $n=20$. Using the derived formulae from the previous part of the questions:
+  \begin{equation}
+        Total\_height=Stem\_height+Cap\_height
+    \end{equation}\\
+     \begin{equation}
+        Stem\_height = n-1\\
+    \end{equation}\\
+     \begin{equation}
+        Cap\_height =\\ \left\lfloor(n)/2\right \rfloor+1
+    \end{equation}\\
+    For $n=20$: 
+    \begin{center}
+        Stem\_height=19\\
+        Cap\_height=11\\
+        Total\_height=30
+    \end{center}
+    $Total\_height\_(M_{20})=30$
   \end{solution}
 \end{parts}
 
@@ -152,13 +273,22 @@ The \href{http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibGen.ht
 \begin{parts}
   \part[10] To begin, prove that the Fibonacci series is countable.
  
-    \begin{solution}
-    % Write your solution here
+    \begin{solution}\\
+    According to the definition of countable set, a set which has the same cardinality as some subset of Natural Numbers $\mathbb{N}$ , is said to be countable. It can either be countably finite or countably infinite.\\
+    Since the Fibonacci series can be mapped correspondingly to the set of Natural Numbers $\mathbb{N}$, it can be said that Fibonacci series is countable. Since it is an infinite set, therefore it is countably infinite. For example:
+    \begin{center}
+        1 2 3 5 8 13 ...\\
+        0 1 2 3 4 5 ...
+    \end{center}
   \end{solution}
+  
   \part[15] Consider the Modified Wythoff as any array derived from the original, where each entry of the leading diagonal (marked in blue) of the original 2D-Array is replaced with an integer that does not occur in that row. Prove that the Modified Wythoff Array is countable. 
 
-  \begin{solution}
-    % Write your solution here
+  \begin{solution}\\
+  Wythoff series is a sequence of Fibonacci series which is countable (proved earlier). When each sequence is countable, the Wythoff series will be countable. \\
+  For the Modified Wythoff, the leading diagonals should be changed in such a way that the replaced integer does not exists in that row. This can be done if the number to be replaced is replaced with the number one row below it. That number will be distinct in the corresponding row. For example: in the given table, 1 should be replaced by 4, 7 should be replaced by 10 and so on. Hence the modified sequence will also be countable.
+  
+  
   \end{solution}
 \end{parts}
 
